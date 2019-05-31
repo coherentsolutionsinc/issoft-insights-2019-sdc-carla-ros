@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<launch>
+    <include file="$(find sdc_package)/launch/mission_planner.launch" />
+    <include file="$(find sdc_package)/launch/local_planner.launch" />
+    <include file="$(find sdc_package)/launch/simple_controller.launch" /> 
+    <include file="$(find sdc_package)/launch/camera.launch" /> 
+</launch>

@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<launch>
+    <node pkg="sdc_package" type="mission_planner.py" name="mission_planner" output="screen">
+        <!-- define wapoints_path parameter -->
+        <param name="waypoints_path" value="$(find sdc_package)/data/waypoints.csv" />
+    </node>
+</launch>

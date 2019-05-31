@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<launch>
+    <node pkg="sdc_package" type="local_planner.py" name="local_planner" output="screen">
+    </node>
+</launch>

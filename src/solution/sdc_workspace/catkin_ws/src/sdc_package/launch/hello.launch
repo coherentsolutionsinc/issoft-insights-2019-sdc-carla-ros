@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<launch>
+    <!-- 
+        pkg: package name 
+        type: file to launch
+        name: node unique name
+        output = "screen" indicates what we will see logs in the console
+    -->
+    <node pkg="sdc_package" type="hello.sh" name="hello_node" output="screen">
+    </node>
+</launch>

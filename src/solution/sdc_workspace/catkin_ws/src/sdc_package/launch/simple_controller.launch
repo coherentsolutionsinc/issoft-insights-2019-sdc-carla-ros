@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<launch>
+    <node pkg="sdc_package" type="simple_controller.py" name="simple_controller" output="screen">
+    </node>
+</launch>
