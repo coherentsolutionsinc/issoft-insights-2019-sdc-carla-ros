@@ -32,12 +32,13 @@ C:\Workshop
     - PythonAPI <-- content of 'PythonAPI' directory of CARLA 0.9.3 for Linux release
   - carla-client
     - PythonAPI <-- content of 'PythonAPI' directory of CARLA 0.9.3 for Windows release
-    - manual_control.py <-- 'repository/install/carla-client/manual_control.py'
+    - manual_control.py <-- `repository/install/carla-client/manual_control.py`
   - carla-ros-bridge
     - catkin_ws
       - src <-- content of CARLA ROS bridge 0.9.3 release
+	  - config <-- overwrite with `settings.yaml` from `repository/install/carla-ros-bridge/config`
   - carla-server <-- content of CARLA 0.9.3 for Windows release
-  - project <-- 'repository/src/*'
+  - project <-- `repository/src/*`
   - ubuntu <-- extracted Ubuntu
 ``` 
 
