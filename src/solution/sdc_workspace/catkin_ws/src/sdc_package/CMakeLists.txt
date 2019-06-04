@@ -9,7 +9,6 @@ project(sdc_package)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
   cv_bridge
-  #opencv2
   rospy
   sensor_msgs
   std_msgs
@@ -112,7 +111,7 @@ generate_messages(
 catkin_package(
 #  INCLUDE_DIRS include
    LIBRARIES sdc_package
-   CATKIN_DEPENDS cv_bridge opencv2 rospy sensor_msgs std_msgs message_runtime 
+   CATKIN_DEPENDS cv_bridge rospy sensor_msgs std_msgs message_runtime 
 #  DEPENDS system_lib
 )
 
