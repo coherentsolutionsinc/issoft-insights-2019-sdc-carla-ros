@@ -4,6 +4,15 @@
 
 This workshop goal is to introduce attendee to [Robot Operating System](http://wiki.ros.org/) (ROS) design and create simple self-driving car architecture.
 
+**By completing workshop you will have**
+
+* Basic knowledge of Robot Operating System including: nodes, messages, topics, packages, launches.
+* Basic knowledge of build-tools and infrastructure used to create ROS packages.
+* Expirience working with CARLA simulator.
+* Overview of PID and Stanley controllers.
+* A ROS package that is able to drive car from one point to another.
+* Fun.
+
 ## Preparation
 
 We have used Windows Virtual Machines in Azure to host workshop environment. While it is possible to execute workshop on your local machine here we are listing everything required to run it as we did.
