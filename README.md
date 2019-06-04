@@ -44,7 +44,7 @@ C:\Workshop
 
 > NOTE: You always can change the paths, but do not forget to modify script and keep sharp eye on guide.
 
-When preparations of directory tree is done please execute: 'repository/install/install.ps1' script. This script will install Ubuntu to WSL and initialize it with all required software.
+When preparations of directory tree is done please execute: `repository/install/install.ps1` script. This script will install Ubuntu to WSL and initialize it with all required software.
 
 > NOTE: Installation could take around 1-2 hours
 
