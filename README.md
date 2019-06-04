@@ -54,7 +54,7 @@ To run the workshop you will need a presentation and guide. Both of these can be
 
 # Asknowlegements
 
-We use [CARLA Simulator](https://github.com/carla-simulator/carla) as engine and [CARLA ROS bridge](https://github.com/carla-simulator/ros-bridge) to connect ROS to CARLA.
+We use [ROS](https://github.com/ros), [CARLA Simulator](https://github.com/carla-simulator/carla) as engine and [CARLA ROS bridge](https://github.com/carla-simulator/ros-bridge) to connect ROS to CARLA.
 
 # Authors
 
