@@ -29,17 +29,17 @@ Here is the mapping of the above downloads to expected directory structure:
 ```
 C:\Workshop
   - carla
-    - PythonAPI <-- content of 'PythonAPI' directory of CARLA 0.9.3 for Linux release
+    - PythonAPI <-- move files and directories from `downloads/CARLA_0.9.3.tar.gz/PythonAPI`
   - carla-client
-    - PythonAPI <-- content of 'PythonAPI' directory of CARLA 0.9.3 for Windows release
-    - manual_control.py <-- `repository/install/carla-client/manual_control.py`
+    - PythonAPI <-- move files and directories from `downloads/CARLA_0.9.3.zip/PythonAPI`
+    - manual_control.py <-- move `downloads/repository/install/carla-client/manual_control.py`
   - carla-ros-bridge
     - catkin_ws
-      - src <-- content of CARLA ROS bridge 0.9.3 release
-	  - config <-- overwrite with `settings.yaml` from `repository/install/carla-ros-bridge/config`
-  - carla-server <-- content of CARLA 0.9.3 for Windows release
-  - project <-- `repository/src/*`
-  - ubuntu <-- extracted Ubuntu
+      - src <-- move files and directories from `downloads/ros-bridge-0.9.3.zip`
+	  - config <-- overwrite with `settings.yaml` from `downloads/repository/install/carla-ros-bridge/config`
+  - carla-server <-- move files and directories from `downloads/CARLA_0.9.3.zip`
+  - project <-- move files and directories from `downloads/repository/src`
+  - ubuntu <-- move files and directories from extracted Ubuntu
 ``` 
 
 > NOTE: You always can change the paths, but do not forget to modify script and keep sharp eye on guide.
