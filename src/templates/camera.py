@@ -30,7 +30,7 @@ class CameraTester(object):
         self.init_pygame()
         self.bridge = CvBridge()
 
-        # TODO: 2. Init node - give node an unique name - overwritten from launch file
+        # TODO: 2. Init nide - give node an unique name - overwritten from launch file
 
         # wait master node is initialized and record start time
         self.wait_master_initialization()

@@ -9,11 +9,11 @@ from nav_msgs.msg import Odometry
 # We will use KDTree to find  closest waypoint
 from scipy.spatial import KDTree
 
-# TODO: 1. Import reqired custom messages: BaseWaypoint, Waypoint, Path, LocalPath
+# TODO: 1. Import required custom messages: BaseWaypoint, Waypoint, Path, LocalPath
 from sdc_package.msg import BaseWaypoint, Waypoint, Path, LocalPath
 #---------------------------------------------------------------------------------
 
-# How mani waypoints will be used for forward path 
+# How many waypoints will be used for forward path 
 MAX_WAYPOINTS = 10
 
 # Which speed we want vehicle to drive with - m/s
@@ -44,7 +44,7 @@ class LocalPlanner(object):
         # Subscribe Carla ROS bridge to get vehicle position and velocity
         rospy.Subscriber('/carla/ego_vehicle/odometry', Odometry, self.process_position)
                
-        # Prepare publisher to publish  short-tem path based on current vehicle position
+        # Prepare publisher to publish  short-term path based on current vehicle position
         self.local_publisher = rospy.Publisher('/planner/local_waypoints', LocalPath, queue_size=1)
 
         # wait till we get planned path and vehicle position
@@ -91,7 +91,7 @@ class LocalPlanner(object):
             rospy.loginfo('Local Planner: Received waypoints')
 
     def process_position(self, position):
-        # TODO: 4. Store postion received from car odometry topic as class field
+        # TODO: 4. Store position received from car odometry topic as class field
         self.position = position.pose
         # ----------------------------------------------------------------------
    

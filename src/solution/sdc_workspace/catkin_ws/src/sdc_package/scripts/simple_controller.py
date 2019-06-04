@@ -77,7 +77,7 @@ class SimpleController(object):
 
         # Odometry message stored car heading using quaternions
         # https://www.youtube.com/watch?v=zjMuIxRvygQ
-        # So we need to convert quaternions to euler "yaw" angle to determine current heading
+        # So we need to convert quaternions to Euler "yaw" angle to determine current heading
         self.yaw = self.get_yaw_last_position()
         
         # ------------------------------------------------------------------------------------
@@ -156,10 +156,10 @@ class SimpleController(object):
                 # 1.4 Uncomment self.basic_control line for basic control
                 #throttle_output, steer_output, brake_output =  self.basic_control()
 
-                # 2.8 Uncomment self.control line for advanced control, comment self.basic_control() line above
+                # 2.9 Uncomment self.control line for advanced control, comment self.basic_control() line above
                 throttle_output, steer_output, brake_output =  self.control(dt)
             
-                # 1.5 publish controll messages to the /carla/ego_vehicle/vehicle_control_cmd topic to control vehicle
+                # 1.5 publish control messages to the /carla/ego_vehicle/vehicle_control_cmd topic to control vehicle
                 cmd_msg = CarlaVehicleControl()
                 cmd_msg.steer = steer_output
                 cmd_msg.throttle = throttle_output
@@ -187,7 +187,7 @@ class SimpleController(object):
         waypoints  = self.waypoints
         v_desired  = waypoints[0].v
         
-        # 2.9 calculate velocity error for PID controller error = desired - current
+        # calculate velocity error for PID controller error = desired - current
         vel_error = v_desired - self.v
 
         # call PID controller to get desired throttle/brake commands               

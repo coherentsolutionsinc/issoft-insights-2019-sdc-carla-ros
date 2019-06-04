@@ -67,7 +67,7 @@ class SimpleController(object):
        
         # Odometry message stored car heading using quaternions
         # https://www.youtube.com/watch?v=zjMuIxRvygQ
-        # So we need to convert quaternions to euler "yaw" angle to determine current heading
+        # So we need to convert quaternions to Euler "yaw" angle to determine current heading
         self.yaw = None
         
         #----------------------------------------------------------------------------------------
@@ -150,7 +150,7 @@ class SimpleController(object):
                 # TODO: 2.9 Uncomment self.control line for advanced control, comment self.basic_control() line above
                 #throttle_output, steer_output, brake_output =  self.control(dt)
 
-                # TODO: 1.5 publish controll messages to the /carla/ego_vehicle/vehicle_control_cmd topic to control vehicle
+                # TODO: 1.5 publish control messages to the /carla/ego_vehicle/vehicle_control_cmd topic to control vehicle
 
             rate.sleep()
 
