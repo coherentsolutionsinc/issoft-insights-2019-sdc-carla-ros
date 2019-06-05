@@ -4,6 +4,15 @@
 
 This workshop goal is to introduce attendee to [Robot Operating System](http://wiki.ros.org/) (ROS) design and create simple self-driving car architecture.
 
+**By completing workshop you will have**
+
+* Basic knowledge of Robot Operating System including: nodes, messages, topics, packages, launches.
+* Basic knowledge of build-tools and infrastructure used to create ROS packages.
+* Expirience working with CARLA simulator.
+* Overview of PID and Stanley controllers.
+* A ROS package that is able to drive car from one point to another.
+* Fun.
+
 ## Preparation
 
 We have used Windows Virtual Machines in Azure to host workshop environment. While it is possible to execute workshop on your local machine here we are listing everything required to run it as we did.
@@ -44,7 +53,7 @@ C:\Workshop
 
 > NOTE: You always can change the paths, but do not forget to modify script and keep sharp eye on guide.
 
-When preparations of directory tree is done please execute: 'repository/install/install.ps1' script. This script will install Ubuntu to WSL and initialize it with all required software.
+When preparations of directory tree is done please execute: `repository/install/install.ps1` script. This script will install Ubuntu to WSL and initialize it with all required software.
 
 > NOTE: Installation could take around 1-2 hours
 
@@ -54,7 +63,7 @@ To run the workshop you will need a presentation and guide. Both of these can be
 
 # Asknowlegements
 
-We use [CARLA Simulator](https://github.com/carla-simulator/carla) as engine and [CARLA ROS bridge](https://github.com/carla-simulator/ros-bridge) to connect ROS to CARLA.
+We use [ROS](https://github.com/ros), [CARLA Simulator](https://github.com/carla-simulator/carla) as engine and [CARLA ROS bridge](https://github.com/carla-simulator/ros-bridge) to connect ROS to CARLA.
 
 # Authors
 
