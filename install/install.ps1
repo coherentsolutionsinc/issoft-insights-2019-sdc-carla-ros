@@ -66,15 +66,7 @@ $Steps = @(
       code --install-extension ms-python.python
       if (-not $?) { throw "The process ended with '$($?)' exit code" }
     }
-  },
-  @{
-    'activity'    = 'Preparing environment'
-    'operation'   = 'Install VSCode PowerShell extension'
-    'scriptblock' = {
-      code --install-extension ms-vscode.powershell
-      if (-not $?) { throw "The process ended with '$($?)' exit code" }
-    }
-  },
+  },,
   @{ 
     'activity'    = 'Installing Ubuntu 18.04'
     'operation'   = 'Refreshing environment'
@@ -154,15 +146,7 @@ $Steps = @(
       & "$WsDir\ubuntu\Ubuntu1804.exe" run 'pip install pygame'
       if (-not $?) { throw "The process ended with '$($?)' exit code" }
     }
-  },
-  @{ 
-    'activity'    = 'Installing Ubuntu 18.04'
-    'operation'   = 'Installing pip/tensorflow'
-    'scriptblock' = {
-      & "$WsDir\ubuntu\Ubuntu1804.exe" run 'pip install tensorflow'
-      if (-not $?) { throw "The process ended with '$($?)' exit code" }
-    }
-  },
+  },,
   @{ 
     'activity'    = 'Installing Ubuntu 18.04'
     'operation'   = 'Setting up ROS repositories list'
