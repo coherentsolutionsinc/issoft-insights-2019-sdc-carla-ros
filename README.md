@@ -4,20 +4,27 @@
 
 This workshop goal is to introduce attendee to [Robot Operating System](http://wiki.ros.org/) (ROS) design and create simple self-driving car architecture.
 
-**By completing workshop you will have**
+**By completing workshop you will:**
 
-* Basic knowledge of Robot Operating System including: nodes, messages, topics, packages, launches.
-* Basic knowledge of build-tools and infrastructure used to create ROS packages.
-* Expirience working with CARLA simulator.
-* Overview of PID and Stanley controllers.
-* A ROS package that is able to drive car from one point to another.
-* Fun.
+* Learn basics of Robot Operating System (ROS) including: nodes, messages, topics, packages, launches.
+* Learn basics about ROS build-tools and infrastructure.
+* Learn basics of PID and Stanley controllers.
+* Get experience working with CARLA and developing ROS package.
+* Have Fun.
 
-## Preparation
+# Prerequisites
 
-We have used Windows Virtual Machines in Azure to host workshop environment. While it is possible to execute workshop on your local machine here we are listing everything required to run it as we did.
+We have used Windows Virtual Machines ([Standard_NV6](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes-gpu#nv-series)) in Azure to host workshop environment. While it is possible to execute workshop on your local machine here we are listing everything required to run it as we did. 
 
-We used [Standard_NV6](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes-gpu#nv-series) virtual machine with the following software installed:
+Here is high-level overview of setup on Windows: 
+
+![](https://user-images.githubusercontent.com/36962980/58967435-d645a280-87bc-11e9-8e70-f19abd86b14b.png)
+
+*The “green” components are what would be installed on Windows and “blue” are what would be installed on Ubuntu*
+
+## Software & Features
+
+Install the following software:
 
 * [7-zip](https://www.7-zip.org/)
 * [Anaconda3 with Python 3.7](https://www.anaconda.com/)
@@ -25,13 +32,32 @@ We used [Standard_NV6](https://docs.microsoft.com/en-us/azure/virtual-machines/w
 * [VcXsrv](https://sourceforge.net/projects/vcxsrv/)
 * [NVIDIA Graphics Driver 425.31](https://sourceforge.net/projects/vcxsrv/)
 
-Besides software you need [CARLA 0.9.3](https://github.com/carla-simulator/carla/releases/tag/0.9.3) (Windows and Linux), [CARLA ROS bridge 0.9.3](https://github.com/carla-simulator/ros-bridge/releases/tag/0.9.3), **this repository** and enabled Windows Subsystem for Linux with Ubuntu 18.04 sources.
+Enable the following features:
 
-Based on the [documentation](https://docs.microsoft.com/en-us/windows/wsl/install-on-server) here are the steps you need to install Ubuntu:
-1. Open PowerShell as Administrator and run: `Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux`
-2. Restart your computer when prompted. This reboot is required in order to ensure that WSL can initiate a trusted execution environment.
-3. Download Ubuntu: `Invoke-WebRequest -Uri https://aka.ms/wsl-ubuntu-1804 -OutFile ~/Ubuntu.appx -UseBasicParsing`
-4. Extract Ubuntu: `Rename-Item ~/Ubuntu.appx ~/Ubuntu.zip` and then `Expand-Archive ~/Ubuntu.zip ~/Ubuntu`
+* [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
+
+## Downloads
+
+Download the following releases:
+
+* Releases of [CARLA 0.9.3](https://github.com/carla-simulator/carla/releases/tag/0.9.3) (Windows and Linux)
+* Release of [CARLA ROS bridge 0.9.3](https://github.com/carla-simulator/ros-bridge/releases/tag/0.9.3)
+
+## Clone
+
+Clone the following repositories:
+
+* [this repository](https://github.com/coherentsolutionsinc/issoft-insights-2019-sdc-carla-ros.git)
+
+## Preparing Ubuntu 18.04
+
+To run the workshop we need to install Ubuntu 18.04 on WSL. Despite traditional way of installing Ubuntu through Windows Store we would install it manually. These steps are extracted from official Microsoft [documentation](https://docs.microsoft.com/en-us/windows/wsl/install-on-server) and adapter to workshop directory structure.
+
+1. Download Ubuntu: `Invoke-WebRequest -Uri https://aka.ms/wsl-ubuntu-1804 -OutFile 'C:\Workshop\Ubuntu.appx' -UseBasicParsing`
+2. Rename Download: `Rename-Item 'C:\Workshop\Ubuntu.appx' 'C:\Workshop\Ubuntu.zip'`
+3. Extract Archive: `Expand-Archive 'C:\Workshop\Ubuntu.zip' 'C:\Workshop\ubuntu'`
+
+## Preparing Directory structure
 
 Here is the mapping of the above downloads to expected directory structure:
 
@@ -41,19 +67,24 @@ C:\Workshop
     - PythonAPI <-- move files and directories from `downloads/CARLA_0.9.3.tar.gz/PythonAPI`
   - carla-client
     - PythonAPI <-- move files and directories from `downloads/CARLA_0.9.3.zip/PythonAPI`
-    - manual_control.py <-- move `downloads/repository/install/carla-client/manual_control.py`
+    - manual_control.py <-- move `clone/install/carla-client/manual_control.py`
   - carla-ros-bridge
     - catkin_ws
       - src <-- move files and directories from `downloads/ros-bridge-0.9.3.zip`
-	  - config <-- overwrite with `settings.yaml` from `downloads/repository/install/carla-ros-bridge/config`
+	  - config <-- overwrite with `settings.yaml` from `clone/install/carla-ros-bridge/config`
   - carla-server <-- move files and directories from `downloads/CARLA_0.9.3.zip`
-  - project <-- move files and directories from `downloads/repository/src`
+  - project <-- move files and directories from `clone/src`
   - ubuntu <-- move files and directories from extracted Ubuntu
 ``` 
 
-> NOTE: You always can change the paths, but do not forget to modify script and keep sharp eye on guide.
+When preparations of directory tree is done please execute: `clone/install/install.ps1` script. This script will install Ubuntu to WSL and initialize it with all required software.
 
-When preparations of directory tree is done please execute: `repository/install/install.ps1` script. This script will install Ubuntu to WSL and initialize it with all required software.
+The scripts automatically does:
+
+* **Installs** Visual Studio Code Python extension
+* **Installs** and **Upgrades** Ubuntu distributive
+* **Installs** `python-pip`, `python-protobuf`, `python-scipy` packages and `pip/simple-pid`, `pip/pygame` pip packages
+* **Installs** and **Configures** `ros-melodic-desktop-full` package
 
 > NOTE: Installation could take around 1-2 hours
 
