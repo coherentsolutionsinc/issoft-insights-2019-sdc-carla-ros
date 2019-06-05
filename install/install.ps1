@@ -61,20 +61,6 @@ $WsDirUnix = '/mnt/c/Workshop'
 $Steps = @(
   @{
     'activity'    = 'Preparing environment'
-    'operation'   = 'Enable Windows Defender exception'
-    'scriptblock' = {
-      Add-MpPreference -ExclusionPath "$WsDir" -ErrorAction Stop
-    }
-  },
-  @{
-    'activity'    = 'Preparing environment'
-    'operation'   = 'Disable Windows Defender real-time protection'
-    'scriptblock' = {
-      Set-MpPreference -DisableRealtimeMonitoring $true
-    }
-  },
-  @{
-    'activity'    = 'Preparing environment'
     'operation'   = 'Install VSCode Python extension'
     'scriptblock' = {
       code --install-extension ms-python.python
@@ -103,35 +89,6 @@ $Steps = @(
     'scriptblock' = {
       & "$WsDir\ubuntu\Ubuntu1804.exe" install --root
       if (-not $?) { throw "The process ended with '$($?)' exit code" }
-    }
-  },
-  @{ 
-    'activity'    = 'Preparing environment'
-    'operation'   = 'Configuring firewall rules'
-    'scriptblock' = {
-      $LxssKey = Get-ChildItem -Path Registry::HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Lxss -ErrorAction Stop
-      $BasePath = $LxssKey.GetValue('BasePath');
-  
-      if ($false -eq $(Get-NetFirewallRule -DisplayName 'dirmngr' -ErrorAction SilentlyContinue; $?)) {
-        New-NetFirewallRule -DisplayName 'dirmngr' -Name 'dirmngr-TCP' -Direction Inbound -Program "$BasePath\rootfs\usr\bin\dirmngr" -Protocol 'TCP' -ErrorAction Stop
-        New-NetFirewallRule -DisplayName 'dirmngr' -Name 'dirmngr-UDP' -Direction Inbound -Program "$BasePath\rootfs\usr\bin\dirmngr" -Protocol 'UDP' -ErrorAction Stop
-      }
-      if ($false -eq $(Get-NetFirewallRule -DisplayName 'python27' -ErrorAction SilentlyContinue; $?)) {
-        New-NetFirewallRule -DisplayName 'python27' -Name 'python27-TCP' -Direction Inbound -Program "$BasePath\rootfs\usr\bin\python2.7" -Protocol 'TCP' -ErrorAction Stop
-        New-NetFirewallRule -DisplayName 'python27' -Name 'python27-UDP' -Direction Inbound -Program "$BasePath\rootfs\usr\bin\python2.7" -Protocol 'UDP' -ErrorAction Stop
-      }
-      if ($false -eq $(Get-NetFirewallRule -DisplayName 'rosout' -ErrorAction SilentlyContinue; $?)) {
-        New-NetFirewallRule -DisplayName 'rosout' -Name 'rosout-TCP' -Direction Inbound -Program "$BasePath\rootfs\opt\ros\melodic\lib\rosout\rosout" -Protocol 'TCP' -ErrorAction Stop
-        New-NetFirewallRule -DisplayName 'rosout' -Name 'rosout-UDP' -Direction Inbound -Program "$BasePath\rootfs\opt\ros\melodic\lib\rosout\rosout" -Protocol 'UDP' -ErrorAction Stop
-      }
-      if ($false -eq $(Get-NetFirewallRule -DisplayName 'rviz' -ErrorAction SilentlyContinue; $?)) {
-        New-NetFirewallRule -DisplayName 'rviz' -Name 'rviz-TCP' -Direction Inbound -Program "$BasePath\rootfs\opt\ros\melodic\bin\rviz" -Protocol 'TCP' -ErrorAction Stop
-        New-NetFirewallRule -DisplayName 'rviz' -Name 'rviz-UDP' -Direction Inbound -Program "$BasePath\rootfs\opt\ros\melodic\bin\rviz" -Protocol 'UDP' -ErrorAction Stop
-      }
-      if ($false -eq $(Get-NetFirewallRule -DisplayName 'vcxsrv' -ErrorAction SilentlyContinue; $?)) {
-        New-NetFirewallRule -DisplayName 'vcxsrv' -Name 'vcxsrv-TCP' -Direction Inbound -Program "$env:ProgramFiles\vcxsrv\vcxsrv.exe" -Protocol 'TCP' -ErrorAction Stop
-        New-NetFirewallRule -DisplayName 'vcxsrv' -Name 'vcxsrv-UDP' -Direction Inbound -Program "$env:ProgramFiles\vcxsrv\vcxsrv.exe" -Protocol 'UDP' -ErrorAction Stop
-      }
     }
   },
   @{ 
