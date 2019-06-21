@@ -56,9 +56,10 @@ Clone the following repositories:
 
 To run the workshop we need to install Ubuntu 18.04 on WSL. Despite traditional way of installing Ubuntu through Windows Store we would install it manually. These steps are extracted from official Microsoft [documentation](https://docs.microsoft.com/en-us/windows/wsl/install-on-server) and adapter to workshop directory structure.
 
-1. Download Ubuntu: `Invoke-WebRequest -Uri https://aka.ms/wsl-ubuntu-1804 -OutFile 'C:\Workshop\Ubuntu.appx' -UseBasicParsing`
-2. Rename Download: `Rename-Item 'C:\Workshop\Ubuntu.appx' 'C:\Workshop\Ubuntu.zip'`
-3. Extract Archive: `Expand-Archive 'C:\Workshop\Ubuntu.zip' 'C:\Workshop\ubuntu'`
+1. Create Directory: `New-Item -Path C:\Workshop -ItemType Directory`
+2. Download Ubuntu: `Invoke-WebRequest -Uri https://aka.ms/wsl-ubuntu-1804 -OutFile 'C:\Workshop\Ubuntu.appx' -UseBasicParsing`
+3. Rename Download: `Rename-Item 'C:\Workshop\Ubuntu.appx' 'C:\Workshop\Ubuntu.zip'`
+4. Extract Archive: `Expand-Archive 'C:\Workshop\Ubuntu.zip' 'C:\Workshop\ubuntu'`
 
 ## Preparing Directory structure
 
