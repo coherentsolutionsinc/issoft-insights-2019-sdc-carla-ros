@@ -30,7 +30,10 @@ Install the following software:
 * [Anaconda3 with Python 3.7](https://www.anaconda.com/)
 * [Visual Studio Code](https://code.visualstudio.com/)
 * [VcXsrv](https://sourceforge.net/projects/vcxsrv/)
-* [NVIDIA Graphics Driver 425.31](https://sourceforge.net/projects/vcxsrv/)
+* [NVIDIA Graphics Driver 425.31](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/n-series-driver-setup#nvidia-grid-drivers)
+  > **WARNING** 
+  >
+  > Installation of "NVIDIA Graphics Driver 425.3" is required only when configuring [Standard_NV6](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes-gpu#nv-series) virtual machines.
 
 Enable the following features:
 
